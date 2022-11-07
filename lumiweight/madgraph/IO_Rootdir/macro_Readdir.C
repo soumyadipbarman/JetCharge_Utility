@@ -6,7 +6,7 @@
  
 
 void macro_Readdir(){
-TFile *infile = new TFile("/home/soumyadip/Research/Work/Analysis/JetCharge/Analysis/observables/workspace/date_20072022/Madgraph/All_files/MG_1000_1500.root");
+TFile *infile = new TFile("../All_files/MG_1000_1500.root");
 
  int i=0; 
   TIter nextkey(gDirectory->GetListOfKeys());

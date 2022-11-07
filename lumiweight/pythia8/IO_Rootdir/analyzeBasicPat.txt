@@ -3805,6 +3805,8 @@ recojet1_eta
 recojet1_phi
 recojet2_eta
 recojet2_phi
+recojet3_eta
+recojet3_phi
 hprof
 hchpt
 recojetallave_pt_0

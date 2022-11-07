@@ -4,7 +4,7 @@ import os
 import sys, optparse
 from array import array
 import math
-import numpy as numpy_
+#import numpy as numpy_
 import sample_xsec_number as crsec
 
 def Analyze():
@@ -18,11 +18,11 @@ def Analyze():
 		for line in myfile:
 			filename.append(line.strip())
         histname = list()
-        with open ("analyzeBasicPat.txt", "r") as hfile:
+        with open ("../IO_Rootdir/analyzeBasicPat.txt", "r") as hfile:
                 for line in hfile:
                         histname.append(line.strip())
         histname2D = list()
-        with open ("analyzeBasicPat2D.txt", "r") as hfile:
+        with open ("../IO_Rootdir/analyzeBasicPat2D.txt", "r") as hfile:
             for line in hfile:
                 histname2D.append(line.strip())
         #outputDir = TDirectory("analyzeBasicPat","analyzeBasicPat");

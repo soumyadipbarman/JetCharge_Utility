@@ -6,7 +6,7 @@
  
 
 void macro_Readdir(){
-TFile *infile = new TFile("/home/soumyadip/Workspace/py/Pythia8/All_files/PY_CP5_170_300.root");
+TFile *infile = new TFile("../All_files/PY_CP5_170_300.root");
 
  int i=0; 
   TIter nextkey(gDirectory->GetListOfKeys());
