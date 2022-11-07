@@ -18,9 +18,13 @@ def Analyze():
 		for line in myfile:
 			filename.append(line.strip())
         histname = list()
-        with open ("MC_hist_name.txt", "r") as hfile:
+        with open ("analyzeBasicPat.txt", "r") as hfile:
                 for line in hfile:
                         histname.append(line.strip())
+        histname2D = list()
+        with open ("analyzeBasicPat2D.txt", "r") as hfile:
+            for line in hfile:
+                histname2D.append(line.strip())
         #outputDir = TDirectory("analyzeBasicPat","analyzeBasicPat");
 	histarray=[]
 	xbins=array( 'd' )
@@ -52,29 +56,11 @@ def Analyze():
 		    histx.Write() 	
 		    histarray.append(histx)
 
-                analyzeBasicPat1D = outfile.mkdir("analyzeBasicPat1D")
-                for i in range(len(histname)):
-                   # print histname[i]              
-                    name = 'analyzeBasicPat/'+histname[i]
-                    hist1d=openf.Get(name)
-                   # print hist1d.GetName()
-                    for ix in range(0,hist1d.GetNbinsX()+1):
-                        xbins.append(hist1d.GetXaxis().GetBinLowEdge(ix+1))
-                        #histarray.append
-                        #histx= TH1F(hist1d.GetName(), hist1d.GetTitle(), hist1d.GetNbinsX(), xbins)
-                    histx=hist1d.Clone()
-                    #histx.Sumw2()
-                   # print 'Entries = ', histx.GetNbinsX()      
-                    scalefact=(41000*a)/b
-                    histx.Scale(scalefact)
-                    outfile.cd()
-                    analyzeBasicPat1D.cd();
-                    histx.Write()
-                    histarray.append(histx)
+            
 	        analyzeBasicPat2D = outfile.mkdir("analyzeBasicPat2D")
-                for i in range(len(histname)):
+                for i in range(len(histname2D)):
                    # print histname[i]              
-                    name = 'analyzeBasicPat/'+histname[i]
+                    name = 'analyzeBasicPat2D/'+histname2D[i]
                     hist1d=openf.Get(name)
                    # print hist1d.GetName()
                     for ix in range(0,hist1d.GetNbinsX()+1):

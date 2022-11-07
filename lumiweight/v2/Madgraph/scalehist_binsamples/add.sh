@@ -1,1 +1,0 @@
-hadd addfile.root MG_1000_1500_merge_Outputplot.root MG_100_200_merge_Outputplot.root MG_1500_2000_merge_Outputplot.root MG_2000_inf_merge_Outputplot.root MG_200_300_merge_Outputplot.root MG_300_500_merge_Outputplot.root MG_500_700_merge_Outputplot.root MG_50_100_merge_Outputplot.root MG_700_1000_merge_Outputplot.root 
