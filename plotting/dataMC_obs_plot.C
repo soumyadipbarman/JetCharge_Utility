@@ -37,7 +37,7 @@ char Yaxis[800];
 char histname2[400];  // For monte carlo histogram reading
 
  //Check the folder for all Monte carlo file for plots
- TH1F *MC_hist[30][4][3][11][11];  //maximum number of Monte carlo can be analysis in 30
+ TH1F *MC_hist[30][3][2][10][10];  //maximum number of Monte carlo can be analysis in 30
  //TH1F *MC_hist[30][18];
  Int_t color[10] ={1,2,4,5,6,46,3,28,38,42};  // define the color for different histograms
  Int_t PTrange[11]={92,119,185,251,319,388,467,518,579,669,3000};
@@ -54,12 +54,12 @@ char histname2[400];  // For monte carlo histogram reading
            cout << "Root file name = "<< line << endl;
            TFile *MC_root = TFile::Open(line);
 
-	for(int id=1; id<4; id++){
-		for (int ij=1; ij<3; ij++){
-			for (int ik=1; ik<11; ik++){
+	for(int id=0; id<3; id++){
+		for (int ij=0; ij<2; ij++){
+			for (int ik=0; ik<10; ik++){
 				for(int ipt=0; ipt<10; ipt++){
              
-	     	sprintf(histname2, "analyzeBasicPat/reco_jetcharge_D%i_j%i_k%i_pt%i_eta0", id, ij, ik, ipt); //reco_jetcharge_D1_j1_k1_pt0_eta0
+	     	sprintf(histname2, "analyzeBasicPat/reco_jc_d%i_j%i_k%i_pt%i_eta0", id, ij, ik, ipt); //reco_jetcharge_D1_j1_k1_pt0_eta0
 
 	     	MC_hist[outnum][id][ij][ik][ipt]= (TH1F*) MC_root->Get(histname2);
              	cout << histname2 << endl;
@@ -80,17 +80,17 @@ char histname2[400];  // For monte carlo histogram reading
  cout <<"number of root file present in that directory = " <<outnum << endl;
 
  //Input root files for Data
- TFile *file1 = TFile::Open("Test_Data_2017UL_29012022.root");  // data root file
+ TFile *file1 = TFile::Open("Data_UL2017.root");  // data root file
 
  char histname1[400];
- TH1F *datahist[4][3][11][11];
+ TH1F *datahist[3][2][10][10];
 
-	for (int id=1; id<4; id++){ 
-	       for (int ij=1; ij<3; ij++){
-                        for (int ik=1; ik<11; ik++){
+	for (int id=0; id<3; id++){ 
+	       for (int ij=0; ij<2; ij++){
+                        for (int ik=0; ik<10; ik++){
                                 for(int ipt=0; ipt<10; ipt++){
 
-                sprintf(histname1, "analyzeBasicPat/reco_jetcharge_D%i_j%i_k%i_pt%i_eta0", id, ij, ik, ipt); //reco_jetcharge_j1_k01_pt0_eta0
+                sprintf(histname1, "analyzeBasicPat/reco_jc_d%i_j%i_k%i_pt%i_eta0", id, ij, ik, ipt); //reco_jetcharge_j1_k01_pt0_eta0
 
          	datahist[id][ij][ik][ipt]= (TH1F*) file1->Get(histname1);
    	        cout << histname1 << endl;
@@ -104,9 +104,9 @@ char histname2[400];  // For monte carlo histogram reading
 /*
 const char* varlogy[60] = {"1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d"};
 */
-const char* obs_def[4]={"Test","Q","Q_{L}","Q_{T}"};
-const char* jet_num[3]={"Test","Leading-Jet","Sub-Leading-Jet"};
-const char* k_fact[11]={"k=0.0","k=0.1","k=0.2","k=0.3","k=0.4","k=0.5","k=0.6","k=0.7","k=0.8","k=0.9","k=1.0"};
+const char* obs_def[3]={"Q","Q_{L}","Q_{T}"};
+const char* jet_num[2]={"Leading-Jet","Sub-Leading-Jet"};
+const char* k_fact[10]={"k=0.1","k=0.2","k=0.3","k=0.4","k=0.5","k=0.6","k=0.7","k=0.8","k=0.9","k=1.0"};
 const char* ptrange[10]={"92 < P_{T} < 119", "119 < P_{T} < 185", "185 < P_{T} < 251", "251 < P_{T} < 319", "319 < P_{T} < 388","388 < P_{T} < 467", "467 < P_{T} < 518", "518 < P_{T} < 579", "579 < P_{T} < 669", "P_{T} > 669"};
 const char* obs_logy[10]={"1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d"};
  
@@ -115,9 +115,9 @@ const char* obs_logy[10]={"1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d"
  TCanvas *cpt0 = new TCanvas("cpt0", "canvas", 900,1000 );
  cout <<"Test 1"<<endl;
  //for(int ivar=0; ivar < 200 ; ivar ++){ // loop for variables
- for(int id=1; id<4; id++){
-   for (int ij=1; ij<3; ij++){
-   	for (int ik=1; ik<11; ik++){
+ for(int id=0; id<3; id++){
+   for (int ij=0; ij<2; ij++){
+   	for (int ik=0; ik<10; ik++){
         	for(int ipt=0; ipt<10; ipt++){
 
    datahist[id][ij][ik][ipt]->SetTitleOffset(0.4);
@@ -153,8 +153,8 @@ const char* obs_logy[10]={"1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d","1/N dN/d"
   float lpos1[7] ={.6,0.7,0.9,0.88, .033, 2.2,.20};
   //cout << "variable =" << ivar << endl;
   cpt0 =(TCanvas*)(ratio_can(num1, lpos1, datahist[id][ij][ik][ipt], MC_input, lplot_xtitle));
-  if(id==1 && ij==1 && ik==1 && ipt==0 ){cpt0->Print("JetCharge_observables_dist.pdf(","pdf");}
-  else if(id ==3 && ij==2 && ik==10 && ipt==9) {cpt0->Print("JetCharge_observables_dist.pdf)","pdf");}
+  if(id==0 && ij==0 && ik==0 && ipt==0 ){cpt0->Print("JetCharge_observables_dist.pdf(","pdf");}
+  else if(id ==2 && ij==1 && ik==9 && ipt==9) {cpt0->Print("JetCharge_observables_dist.pdf)","pdf");}
   else{cpt0->Print("JetCharge_observables_dist.pdf","pdf");};
   //cpt0->Print("JetCharge_observables_dist.pdf","pdf");
   // end of file loop
@@ -292,5 +292,3 @@ int  color[22] = {2,6,4,8,46,49,1,41,42,30,46,28,29,38,30,12,37,49,9,32,9,9};
   canvas->Update();
   return canvas;
 }//end of  ratio plot function
-
-

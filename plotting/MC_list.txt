@@ -1,4 +1,4 @@
-Test_MC_2017UL_Pythia_bin_29012022.root
-Test_MC_2017UL_Madgraph_bin_29012022.root
-Test_MC_2017UL_Herwig_flat_29012022.root
-Test_MC_2017UL_Pythia_flat_29012022.root
+PY8_bin.root
+MG5_PY8_bin.root
+HW_CH3_QCD_Pt-15to7000_TuneCH3_Flat_13TeV_herwig7.root
+PY_CP5_QCD_Pt-15to7000_TuneCP5_Flat_13TeV_pythia8.root
