@@ -1,0 +1,9 @@
+MG_50_100.root
+MG_100_200.root
+MG_200_300.root
+MG_300_500.root
+MG_500_700.root
+MG_700_1000.root
+MG_1000_1500.root
+MG_1500_2000.root
+MG_2000_inf.root
