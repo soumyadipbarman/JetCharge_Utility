@@ -3,8 +3,8 @@ import os, sys
 def getXsec(samplename):
 	(Xsec,evtnum)=(1.0,1.0)
 
-        if 'PY_CP5_15_30'   in samplename:
-                (Xsec,evtnum) = (1246000000.0, 19997400)
+        #if 'PY_CP5_15_30'   in samplename:
+        #        (Xsec,evtnum) = (1246000000.0, 19997400)
 	if 'PY_CP5_30_50'   in samplename: 
 		(Xsec,evtnum) = (106900000.0, 19082200)
 	if 'PY_CP5_50_80'   in samplename: 

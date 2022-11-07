@@ -1,4 +1,3 @@
-PY_CP5_15_30.root
 PY_CP5_30_50.root
 PY_CP5_50_80.root
 PY_CP5_80_120.root
