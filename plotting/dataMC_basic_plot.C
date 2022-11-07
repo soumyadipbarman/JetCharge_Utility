@@ -113,7 +113,7 @@ Int_t outnum =0;
  cout <<"number of root file present in that directory = " <<outnum << endl;
 
  //Input root files for Data
- TFile *file1 = TFile::Open("JetCharge_Data_analysis_Run2017UL_29042021.root");  // data root file
+ TFile *file1 = TFile::Open("Test_Data_2017UL_29012022.root");  // data root file
 
 
  char histname1[100];
@@ -214,10 +214,10 @@ Int_t outnum =0;
   float lpos1[7] ={.6,0.7,0.9,0.88, .033, 2.2,.20};
   cout << "variable =" << ivar << endl;
   cpt0 =(TCanvas*)(ratio_can(num1, lpos1, datahist[ivar], MC_input, lplot_xtitle));
-  if(ivar==0 ){cpt0->Print("JetCharge_Basic_dist.pdf(","pdf");
-  }else if(ivar==19) {cpt0->Print("JetCharge_Basic_dist.pdf)","pdf");
+  if(ivar==0 ){cpt0->Print("JetCharge_basic_dist.pdf(","pdf");
+  }else if(ivar==19) {cpt0->Print("JetCharge_basic_dist.pdf)","pdf");
   }else{
-    cpt0->Print("JetCharge_Basic_dist.pdf","pdf");};
+    cpt0->Print("JetCharge_basic_dist.pdf","pdf");};
 
   // end of file loop
   //cpt0->Clear();
